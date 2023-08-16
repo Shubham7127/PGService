@@ -1,0 +1,9 @@
+package com.app.pojos;
+
+
+public class Cities extends CommonEntity{
+	
+	private String name;
+	private String description
+
+}

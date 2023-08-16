@@ -1,0 +1,9 @@
+package com.app.pojos;
+
+@Entity
+@Table(name = "City")
+public class City extends CommonEntity {
+
+	private String name;
+	
+}

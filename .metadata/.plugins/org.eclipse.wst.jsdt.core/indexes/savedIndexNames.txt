@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+/home/sunbeam/java/advjava/classwork/project/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+796234441.index
+3453573702.index
+232404738.index
+1834674600.index

@@ -1,0 +1,28 @@
+package com.app.pojos;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Properties")
+public class Properties extends CommonEntity{
+	
+	@Column	
+	private String name;
+	@Column(length = 300)
+	private String description;
+	@Column
+	private String address;
+	@Column
+	@Enumerated(EnumType.STRING) 
+	private Gender gender;
+	@Column
+	private double rent;
+	@Column
+	private	float ratingClean;
+	@Column
+	private float ratingFood;
+	@Column
+	private float ratingSafety;
+
+	private Long cityId;
+}
