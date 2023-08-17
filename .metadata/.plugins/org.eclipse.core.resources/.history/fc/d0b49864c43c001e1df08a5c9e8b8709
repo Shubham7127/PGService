@@ -1,0 +1,17 @@
+package com.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.app.service.PropertServ;
+
+@RestController
+@RequestMapping("/properties")
+public class PropertiesController {
+
+	@Autowired
+	public PropertServ propertyServ;
+	
+	
+	
+}

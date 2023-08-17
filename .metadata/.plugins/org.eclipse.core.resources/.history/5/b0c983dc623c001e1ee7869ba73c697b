@@ -1,0 +1,33 @@
+package com.app.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.app.pojos.Cities;
+import com.app.service.CityServ;
+
+@RestController
+@RequestMapping("/cities")
+public class CityController {
+
+	@Autowired
+	private CityServ cityService;
+	
+	public CityController() {
+		System.out.println("CityControllerCalled");
+	}
+	
+	@GetMapping
+	public List<Cities> listAllCities(){
+		
+		return cityService.getAllCities();
+	}
+	
+	@PostMapping
+	public Cities city(@RequestBody Cities city) {
+	
+		return cityService.addCity(city);
+	}
+}
