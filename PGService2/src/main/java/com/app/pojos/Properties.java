@@ -29,7 +29,7 @@ public class Properties extends CommonEntity{
 	private float ratingFood;
 	@Column
 	private float ratingSafety;
-	@ManyToOne
+	@ManyToOne(fetch= FetchType.LAZY)
 	@JoinColumn(name ="city_id")
 	private Cities myCity;
 	
