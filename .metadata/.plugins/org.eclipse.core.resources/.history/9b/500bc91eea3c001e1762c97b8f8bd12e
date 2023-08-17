@@ -1,0 +1,17 @@
+package com.pg.service;
+
+import java.util.List;
+
+import com.pg.pojo.Cities;
+
+
+
+public interface CityServ {
+
+	//public List<Cities>getAllCities();
+	
+	public Cities getById(Long id);
+	public Cities addCity(Cities city);
+	
+	public String deleteCities(Long id);
+}

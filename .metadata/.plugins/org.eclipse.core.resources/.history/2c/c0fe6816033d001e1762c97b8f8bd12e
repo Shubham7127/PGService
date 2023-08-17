@@ -1,0 +1,50 @@
+package com.pg.service;
+
+import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.pg.custom_exceptions.ResourceNotFoundException;
+import com.pg.dao.CityDao;
+import com.pg.dto.Citiesdto;
+import com.pg.pojo.Cities;
+
+@Service
+@Transactional
+public class CityServImpl implements CityServ {
+
+	@Autowired
+	private CityDao cityDao;
+	
+	@Autowired
+	private ModelMapper mapper;
+	@Override
+	public List<Cities> getAllCities() {
+		System.out.println();
+		List<Cities>city= cityDao.findAll();
+		return mapper.map(city,Citiesdto.class);
+	}
+	
+	
+	@Override
+	public Cities addCity(Cities city) {
+
+		return cityDao.saveAndFlush(city);
+	}
+	@Override
+	public String deleteCities(Long id) {
+
+		Cities city = cityDao.findById(id).orElseThrow();
+		cityDao.deleteById(id);
+		return "city Deleted";
+	}
+	@Override
+	public Cities getById(Long id) {
+
+		return cityDao.findById(id).orElseThrow((() -> new ResourceNotFoundException("Invalid city id !!!!!")));
+	}
+
+}

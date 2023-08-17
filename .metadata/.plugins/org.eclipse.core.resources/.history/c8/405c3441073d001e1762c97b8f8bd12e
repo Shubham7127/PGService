@@ -1,0 +1,57 @@
+package com.pg.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.pg.custom_exceptions.ResourceNotFoundException;
+import com.pg.dao.CityDao;
+import com.pg.dto.Citiesdto;
+import com.pg.pojo.Cities;
+
+@Service
+@Transactional
+public class CityServImpl implements CityServ {
+
+	@Autowired
+	private CityDao cityDao;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+
+	
+	@Override
+	public List<Cities> getAllCities() {
+		List <Citiesdto> dtoList = new ArrayList<Citiesdto>();
+ 		List<Cities>cities= cityDao.findAll();
+		return  cities.forEach(city -> dtoList.add(mapper.map(city,Citiesdto.class));
+	}
+	
+	
+	@Override
+	public Cities addCity(Cities city) {
+
+		return cityDao.saveAndFlush(city);
+	}
+	@Override
+	public String deleteCities(Long id) {
+
+		Cities city = cityDao.findById(id).orElseThrow();
+		cityDao.deleteById(id);
+		return "city Deleted";
+	}
+	@Override
+	public Citiesdto getById(Long id) {
+
+		Cities city=  cityDao.findById(id).orElseThrow((() -> new ResourceNotFoundException("Invalid city id !!!!!")));
+		return mapper.map(city, Citiesdto.class);
+	}
+
+}

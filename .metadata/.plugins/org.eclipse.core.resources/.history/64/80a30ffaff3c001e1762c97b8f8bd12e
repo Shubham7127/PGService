@@ -1,0 +1,5 @@
+package com.pg.dto;
+
+public class Citiesdto {
+
+}
