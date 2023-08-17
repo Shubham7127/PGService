@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.dto.Citiesdto;
 import com.app.pojos.Cities;
 import com.app.service.CityServ;
 
@@ -19,14 +20,14 @@ public class CityController {
 		System.out.println("CityControllerCalled");
 	}
 	
-//	@GetMapping
-//	public List<Cities> listAllCities(){
-//		System.out.println("in listCities");
-//		return cityService.getAllCities();
-//	}
+	@GetMapping
+	public List<Citiesdto> listAllCities(){
+		System.out.println("in listCities");
+		return cityService.getAllCities();
+	}
 	
 	@GetMapping("/{id}")
-	public Cities getById(@PathVariable Long id){
+	public Citiesdto getById(@PathVariable Long id){
 		System.out.println("in listCities");
 		return cityService.getById(id);
 	}

@@ -1,0 +1,17 @@
+package com.app.dao;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.app.pojos.Cities;
+import com.app.pojos.Properties;
+
+public interface CityDao extends JpaRepository<Cities, Long> {
+
+	@Query("select c.id from city c where c.name = '?1'")
+	Cities findByCityByName(String name);
+
+	Cities findByCityName(String cityName);
+}

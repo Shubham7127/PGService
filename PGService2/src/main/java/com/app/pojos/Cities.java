@@ -22,9 +22,6 @@ public class Cities extends CommonEntity {
 	private String name;
 	@OneToMany(mappedBy ="myCity", cascade = CascadeType.ALL,orphanRemoval = true,fetch= FetchType.EAGER)
 	private List<Properties> properties = new ArrayList<>();
-//	@Override
-//	public String toString() {
-//		return "Cities "+getId()+"[name=" + name + ", properties=" + properties + "]";
-//	}
+
 	
 }

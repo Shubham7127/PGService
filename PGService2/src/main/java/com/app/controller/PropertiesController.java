@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.dto.Propertydto;
 import com.app.pojos.Properties;
 import com.app.service.PropertServ;
 
@@ -18,10 +19,10 @@ public class PropertiesController {
 	public PropertiesController() {
 		System.out.println("propertiesControllerCalled");
 	}
-	@GetMapping("/city")
-	public List<Properties> listOfProperties(@RequestParam String city){
-		return propertyServ.getByCity(city);
-	}
 	
+	@GetMapping("/{cityName}")
+    public List<Propertydto> getPropertiesByCityName(@PathVariable String cityName) {
+        return propertyServ.getPropertiesByCityName(cityName);
+    }
 	
 }

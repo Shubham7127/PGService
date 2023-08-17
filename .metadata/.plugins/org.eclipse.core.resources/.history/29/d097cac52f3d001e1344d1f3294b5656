@@ -1,0 +1,34 @@
+package com.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.dao.PropertDao;
+import com.app.pojos.Cities;
+import com.app.pojos.Properties;
+
+@Service
+@Transactional
+public class PropertServImpl implements PropertServ{
+
+	
+	@Autowired
+	private PropertDao propertyDao;
+
+	@Autowired
+	private Cities citiesDao;
+	@Override
+	public List<Properties> getPropertiesByCityName(String cityName) {
+		Cities city=findByCityName(cityName);
+			propertyDao.findById(city.getId());
+		return 
+	}
+
+	
+
+	
+
+}

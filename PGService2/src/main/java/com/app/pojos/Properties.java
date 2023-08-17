@@ -33,12 +33,6 @@ public class Properties extends CommonEntity{
 	@JoinColumn(name ="city_id")
 	private Cities myCity;
 	
-//	@Override
-//	public String toString() {
-//		return "Properties "+getId()+"[name=" + name + ", description=" + description + ", address=" + address + ", gender="
-//				+ gender + ", rent=" + rent + ", ratingClean=" + ratingClean + ", ratingFood=" + ratingFood
-//				+ ", ratingSafety=" + ratingSafety + ", myCity=" + myCity + "]";
-//	}
 	
 	
 }

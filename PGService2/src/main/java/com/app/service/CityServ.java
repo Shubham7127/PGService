@@ -2,13 +2,14 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.dto.Citiesdto;
 import com.app.pojos.Cities;
 
 public interface CityServ {
 
-	//public List<Cities>getAllCities();
+	public List<Citiesdto> getAllCities();
 	
-	public Cities getById(Long id);
+	public Citiesdto getById(Long id);
 	public Cities addCity(Cities city);
 	
 	public String deleteCities(Long id);

@@ -1,0 +1,21 @@
+package com.app;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PgService2Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PgService2Application.class, args);
+	}
+
+	@Bean
+	public ModelMapper modelMapper() {
+		ModelMapper mapper = new ModelMapper();
+		//Strict mode => While mapping , src prop names n src props data types 
+		//MUST MATCH with dest type
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		return mapper;
+	}
+}
