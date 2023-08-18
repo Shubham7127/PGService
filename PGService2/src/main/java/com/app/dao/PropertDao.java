@@ -10,8 +10,5 @@ import com.app.pojos.Properties;
 
 @Repository
 public interface PropertDao extends JpaRepository<Properties, Long> {
-
-	
-	
 	
 }

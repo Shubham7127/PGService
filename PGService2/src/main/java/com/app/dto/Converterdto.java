@@ -15,6 +15,7 @@ public class Converterdto {
 	public Properties toProperty(Propertydto dto) {
 		
 		Properties entity=new Properties();
+		entity.setId(dto.getId());
 		entity.setAddress(dto.getAddress());
 		entity.setDescription(dto.getDescription());
 		entity.setName(dto.getName());

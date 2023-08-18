@@ -1,0 +1,22 @@
+package com.app.pojos;
+
+public class User {
+
+	
+	extends CommonEntity 
+	{   
+		@Column
+		private String email;
+		@Column
+		private String password;
+		@Column
+		private String fullName;
+		@Column
+		private long PhoneNo;
+		@Column
+		@Enumerated(EnumType.STRING) 
+		private Gender gender;
+		@Column
+		private String collegeName;
+	
+}

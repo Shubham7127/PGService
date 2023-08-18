@@ -43,4 +43,10 @@ public class CityController {
 		return cityService.deleteCities(id);
 	}
 	
+	@PutMapping
+	public Cities updateCity(@RequestBody Citiesdto ct) {
+		
+		return cityService.updateCity(ct);
+	}
+	
 }

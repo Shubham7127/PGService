@@ -1,0 +1,22 @@
+package com.app.pojos;
+
+public class Reviews {
+
+	extends CommonEntity {
+
+		
+		@ManyToOne
+		@JoinColumn(name = "property_id")
+		private Properties propertyid;
+		
+		@Column
+		private String content;
+		
+		@Column
+		private String username;
+		
+		@ManyToOne
+		@JoinColumn(name ="User_id")
+		private User user;
+	
+}

@@ -13,5 +13,5 @@ public interface CityServ {
 	public Cities addCity(Citiesdto city);
 	
 	public String deleteCities(Long id);
-
+	public Cities updateCity(Citiesdto ct);
 }

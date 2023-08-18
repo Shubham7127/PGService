@@ -32,4 +32,10 @@ public class PropertiesController {
 	
 		return propertyServ.addProperty(property);
 	}
+	
+	@PutMapping
+	public Properties updateProperty(@RequestBody Propertydto property) {
+		
+		return propertyServ.updateProperty(property);
+	}
 }

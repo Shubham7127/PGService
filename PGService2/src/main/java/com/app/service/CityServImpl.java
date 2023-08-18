@@ -24,6 +24,8 @@ public class CityServImpl implements CityServ {
 	
 	@Autowired
 	public ModelMapper mapper;
+//	@Autowired
+//	public Converterdto converter;
 	
 	@Override
 	public List<Citiesdto> getAllCities() {
@@ -55,6 +57,15 @@ public class CityServImpl implements CityServ {
 		 Cities ctyo  =dto.toCities(city);
 		Cities cty= cityDao.save(ctyo);
 		 return cty;
+	}
+
+	@Override
+	public Cities updateCity(Citiesdto city) {
+		Cities ct=cityDao.findById(city.getId()).orElseThrow(() -> new ResourceNotFoundException("Invalid city ID !!!!!"));
+		Converterdto dto=new Converterdto();
+		 Cities ctyo  =dto.toCities(city);
+		 
+		return cityDao.save(ctyo);
 	}
 
 }

@@ -35,11 +35,13 @@ public class Properties extends CommonEntity{
 	@ManyToOne(fetch= FetchType.LAZY)
 	@JoinColumn(name ="city_id")
 	private Cities myCity;
-		
-	@ManyToMany(fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+	
+	@ManyToMany(fetch=FetchType.LAZY,cascade = CascadeType.MERGE)
 	@JoinTable(name="Properties_Facilities",
 	joinColumns =  @JoinColumn(name="property_id"),
 	inverseJoinColumns =  @JoinColumn(name="facility_id"))
 	private List<Facilities> facilities=new ArrayList<Facilities>();
 	
+	@ManyToMany(mappedBy = "properties" ,fetch = FetchType.LAZY)
+	private  List<User>users=new ArrayList<User>();
 }

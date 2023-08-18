@@ -18,6 +18,7 @@ import lombok.ToString;
 @ToString 
 @Component
 public class Propertydto {
+	private Long id;
 	private String name;
 	private String description;
 	private String address;
