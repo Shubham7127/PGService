@@ -33,7 +33,7 @@ public class CityController {
 	}
 	
 	@PostMapping
-	public Cities city(@RequestBody Cities city) {
+	public Cities addCity(@RequestBody Citiesdto city) {
 	
 		return cityService.addCity(city);
 	}

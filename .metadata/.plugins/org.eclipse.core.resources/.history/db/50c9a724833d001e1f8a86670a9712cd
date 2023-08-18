@@ -1,0 +1,14 @@
+package com.app.dto;
+
+import com.app.pojos.Cities;
+
+public class Converterdto {
+
+	public Cities toCities(Citiesdto dto) {
+	
+		Cities entity = new Cities();
+		entity.setName(dto.getName());
+		entity.setId(dto.getId());
+		return null;
+	}
+}

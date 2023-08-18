@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.dto.Citiesdto;
 import com.app.dto.Propertydto;
+import com.app.pojos.Cities;
 import com.app.pojos.Properties;
 import com.app.service.PropertServ;
 
@@ -25,4 +27,9 @@ public class PropertiesController {
         return propertyServ.getPropertiesByCityName(cityName);
     }
 	
+	@PostMapping
+	public Properties addProperty(@RequestBody Propertydto property) {
+	
+		return propertyServ.addProperty(property);
+	}
 }

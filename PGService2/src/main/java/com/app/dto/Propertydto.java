@@ -1,8 +1,5 @@
 package com.app.dto;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 import org.springframework.stereotype.Component;
 
@@ -29,4 +26,5 @@ public class Propertydto {
 	private	float ratingClean;
 	private float ratingFood;
 	private float ratingSafety;
+
 }

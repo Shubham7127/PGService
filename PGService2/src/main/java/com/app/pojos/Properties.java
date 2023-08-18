@@ -1,5 +1,8 @@
 package com.app.pojos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 import lombok.*;
@@ -32,7 +35,11 @@ public class Properties extends CommonEntity{
 	@ManyToOne(fetch= FetchType.LAZY)
 	@JoinColumn(name ="city_id")
 	private Cities myCity;
-	
-	
+		
+	@ManyToMany(fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+	@JoinTable(name="Properties_Facilities",
+	joinColumns =  @JoinColumn(name="property_id"),
+	inverseJoinColumns =  @JoinColumn(name="facility_id"))
+	private List<Facilities> facilities=new ArrayList<Facilities>();
 	
 }

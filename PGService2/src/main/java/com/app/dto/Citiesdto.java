@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 @Component
 public class Citiesdto {
+	private Long id;
 	private String name;
 	
 }

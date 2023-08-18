@@ -10,7 +10,8 @@ public interface CityServ {
 	public List<Citiesdto> getAllCities();
 	
 	public Citiesdto getById(Long id);
-	public Cities addCity(Cities city);
+	public Cities addCity(Citiesdto city);
 	
 	public String deleteCities(Long id);
+
 }

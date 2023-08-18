@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.CityDao;
 import com.app.dto.Citiesdto;
+import com.app.dto.Converterdto;
 import com.app.pojos.Cities;
 
 @Service
@@ -34,12 +35,6 @@ public class CityServImpl implements CityServ {
 	}
 	
 	@Override
-	public Cities addCity(Cities city) {
-
-		return cityDao.saveAndFlush(city);
-	}
-	
-	@Override
 	public String deleteCities(Long id) {
 
 		Cities city = cityDao.findById(id).orElseThrow(() -> new ResourceNotFoundException("Invalid city ID !!!!!"));
@@ -52,6 +47,14 @@ public class CityServImpl implements CityServ {
 
 		Cities city= cityDao.findById(id).orElseThrow(() -> new ResourceNotFoundException("Invalid city ID !!!!!"));
 		return mapper.map(city, Citiesdto.class);
+	}
+
+	@Override
+	public Cities addCity(Citiesdto city) {
+		Converterdto dto=new Converterdto();
+		 Cities ctyo  =dto.toCities(city);
+		Cities cty= cityDao.save(ctyo);
+		 return cty;
 	}
 
 }
