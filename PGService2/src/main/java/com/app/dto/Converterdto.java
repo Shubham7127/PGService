@@ -1,7 +1,9 @@
 package com.app.dto;
 
 import com.app.pojos.Cities;
+import com.app.pojos.Facilities;
 import com.app.pojos.Properties;
+import com.app.pojos.User;
 
 public class Converterdto {
 
@@ -25,6 +27,28 @@ public class Converterdto {
 		entity.setRatingSafety(dto.getRatingSafety());
 		entity.setRent(dto.getRent());
 		return entity;
+	}
+
+	public Facilities toFacilities(Facilitiesdto dto) {
+		Facilities entity=new Facilities();
+		entity.setId(dto.getId());
+		entity.setName(dto.getName());
+		entity.setType(dto.getType());
+		return entity;
+	}
+	public User toUser(UserDto dto)
+	{
+		User entity = new User();
+		entity.setId(dto.getId());
+		entity.setEmail(dto.getEmail());
+		entity.setPassword(dto.getPassword());
+		entity.setFullName(dto.getFullName());
+		entity.setRole(dto.getRole());
+		entity.setMobNo(dto.getMobNo());
+		entity.setGender(dto.getGender());
+		
+		return entity;
+		
 	}
 	
 }

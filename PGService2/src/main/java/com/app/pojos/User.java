@@ -15,13 +15,13 @@ import lombok.*;
 @Table(name = "Users")
 public class User extends CommonEntity 
 {   
-		@Column
+		@Column(unique = true,nullable = false)
 		private String email;
-		@Column
+		@Column(nullable =false)
 		private String password;
-		@Column
+		@Column(nullable =false)
 		private String fullName;
-		@Column
+		@Column(length = 10,nullable =false)
 		private long mobNo;
 		@Column
 		@Enumerated(EnumType.STRING) 
