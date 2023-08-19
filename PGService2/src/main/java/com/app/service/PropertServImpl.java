@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.CityDao;
 import com.app.dao.PropertDao;
+import com.app.dto.ApiResponse;
 import com.app.dto.Citiesdto;
 import com.app.dto.Converterdto;
 import com.app.dto.Facilitiesdto;
@@ -63,11 +64,13 @@ public class PropertServImpl implements PropertServ {
 	}
 
 	@Override
-	public Properties addProperty(Propertydto property) {
+	public ApiResponse addProperty(Propertydto property) {
+
 		Converterdto converter = new Converterdto();
-		Properties propt = converter.toProperty(property);
+		Properties propt = converter.toPropertyEntity(property);
 		Properties prop = propertyDao.save(propt);
-		return prop;
+
+		return new ApiResponse("Property Added Successfully");
 	}
 
 	@Override
@@ -92,7 +95,7 @@ public class PropertServImpl implements PropertServ {
 	public List<Facilitiesdto> findById(Long id) {
 		Properties prop = propertyDao.findById(id).orElseThrow();
 		List<Facilities> list = prop.getFacilities();
-		
+
 		List<Facilitiesdto> facilityDtoList = new ArrayList<Facilitiesdto>();
 		for (Facilities e : list) {
 			Facilitiesdto fd = new Facilitiesdto();
@@ -102,9 +105,8 @@ public class PropertServImpl implements PropertServ {
 			facilityDtoList.add(fd);
 		}
 //		System.out.println(list.get(0).getName());
-		prop.getFacilities().size();//avoid lazy init 
+		prop.getFacilities().size();// avoid lazy init
 		return facilityDtoList;
 	}
-
 
 }

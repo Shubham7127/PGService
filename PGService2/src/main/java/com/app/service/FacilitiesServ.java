@@ -2,13 +2,14 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.dto.ApiResponse;
 import com.app.dto.Citiesdto;
 import com.app.dto.Facilitiesdto;
 import com.app.pojos.Facilities;
 
 public interface FacilitiesServ {
 
-	public Facilities addFacilities(Facilitiesdto facilities);
+	ApiResponse addFacilities(Facilitiesdto facilities);
 	
 	public Facilities updateFacilities(Facilitiesdto  facilities);
 	

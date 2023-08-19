@@ -21,7 +21,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@ToString
 @Table(name = "Facilities")
 public class Facilities extends CommonEntity {
 	@Column(length=20)

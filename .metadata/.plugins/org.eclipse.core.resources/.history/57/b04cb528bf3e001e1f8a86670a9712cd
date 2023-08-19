@@ -1,0 +1,51 @@
+package com.app.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.app.dto.Reviewdto;
+
+@Service
+@Transactional
+public class ReviewsServImpl implements ReviewsServ {
+	@Autowired
+	ReviewDao dao;
+	
+	@Autowired
+	public ModelMapper mapper;
+	
+	@Override
+	public List<ReviewsDto> getAllReview() {
+		
+		List<ReviewsDto> ReviewsDtoList = new ArrayList<ReviewsDto>();
+		List<Reviews> reviews= dao.findAll();
+		ReviewsDtoList = Arrays.asList(mapper.map(reviews,ReviewsDto[].class));
+		return ReviewsDtoList;
+	}
+
+	@Override
+	public ReviewsDto getById(Long id) {
+		
+		Reviews review = dao.findById(id).orElseThrow(() -> new ResourceNotFoundException("Wrong id"));
+		return mapper.map(review, ReviewsDto.class);
+	}
+
+	@Override
+	public Reviews addReview(ReviewsDto review) {
+		    
+		Converterdto cdto =new Converterdto();
+		
+		return cdto.toReviews(review);
+	}
+
+	@Override
+	public String deleteReview(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

@@ -31,7 +31,7 @@ public class UserDto {
 	private String fullName;
 
 	private long mobNo;
-
+	private String address;
 	private Gender gender;
 
 	private String role;

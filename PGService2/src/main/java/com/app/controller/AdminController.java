@@ -3,8 +3,10 @@ package com.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.dto.ApiResponse;
 import com.app.dto.Citiesdto;
 import com.app.dto.Facilitiesdto;
 import com.app.dto.Propertydto;
@@ -42,11 +44,11 @@ public class AdminController {
 	public String deleteUser(@PathVariable Long id) {
 		return userservice.deleteUser(id);
 	}
-	
+		
 	@PostMapping("/property/addproperty")
-	public Properties addProperty(@RequestBody Propertydto property) {
+	public ResponseEntity<?> addProperty(@RequestBody Propertydto property) {
 	
-		return propertyServ.addProperty(property);
+		return ResponseEntity.ok(propertyServ.addProperty(property));
 	}
 	
 	@PutMapping("/property/update")
@@ -55,8 +57,8 @@ public class AdminController {
 		return propertyServ.updateProperty(property);
 	}
 	@PostMapping("/facilities/addfacilities")
-	public Facilities addFacilities(@RequestBody Facilitiesdto facilities ) {
-		return facilitiesServ.addFacilities(facilities);
+	public ResponseEntity<?> addFacilities(@RequestBody Facilitiesdto facilities ) {
+		return ResponseEntity.ok(facilitiesServ.addFacilities(facilities));
 	}
 	
 	@PutMapping("/facilities/edit")
@@ -71,9 +73,9 @@ public class AdminController {
 	}
 	
 	@PostMapping("/cities/add")
-	public Cities addCity(@RequestBody Citiesdto city) {
+	public  ResponseEntity<?> addCity(@RequestBody Citiesdto city) {
 	
-		return cityService.addCity(city);
+		return ResponseEntity.ok(cityService.addCity(city));
 	}
 	
 	@DeleteMapping("/cities/delete/{id}")

@@ -1,0 +1,29 @@
+package com.app.pojos;
+
+import javax.persistence.*;
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "Reviews")
+public class Reviews extends CommonEntity {
+
+		
+		@ManyToOne
+		@JoinColumn(name = "property_id")
+		private Properties propertyid;
+		
+		@Column
+		private String content;
+		
+		@Column
+		private String username;
+		
+		@ManyToOne
+		@JoinColumn(name ="User_id")
+		private User user;
+	
+}

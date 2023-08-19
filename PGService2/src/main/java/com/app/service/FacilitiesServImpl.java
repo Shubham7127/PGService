@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.FacilitiesDao;
+import com.app.dto.ApiResponse;
 import com.app.dto.Converterdto;
 import com.app.dto.Facilitiesdto;
 import com.app.pojos.Facilities;
@@ -26,12 +27,12 @@ public class FacilitiesServImpl implements FacilitiesServ {
 	public ModelMapper mapper;
 
 	@Override
-	public Facilities addFacilities(Facilitiesdto facilities) {
+	public ApiResponse addFacilities(Facilitiesdto facilities) {
 
 		Converterdto dto = new Converterdto();
 		Facilities ctyo = dto.toFacilities(facilities);
 		Facilities fty = facilitiesDao.save(ctyo);
-		return fty;
+		return new ApiResponse("Facility Added Successfully");
 	}
 
 	@Override

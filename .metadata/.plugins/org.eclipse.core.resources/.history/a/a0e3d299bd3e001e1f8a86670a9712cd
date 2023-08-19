@@ -1,0 +1,19 @@
+package com.app.dto;
+
+import com.app.pojos.Gender;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Reviewdto {
+	private Long id;
+	private String content;
+	private Long propertyid;
+	private Long Userid;
+}

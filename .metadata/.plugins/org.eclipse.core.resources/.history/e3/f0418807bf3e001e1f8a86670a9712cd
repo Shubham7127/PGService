@@ -1,0 +1,22 @@
+package com.app.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.app.dto.Reviewdto;
+
+@Service
+@Transactional
+public class ReviewsServImpl implements ReviewsServ {
+
+	@Override
+	public List<Reviewdto> getAllReview() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

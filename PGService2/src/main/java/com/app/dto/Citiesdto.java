@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+
 @Component
 public class Citiesdto {
 	private Long id;

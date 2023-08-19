@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.CityDao;
+import com.app.dto.ApiResponse;
 import com.app.dto.Citiesdto;
 import com.app.dto.Converterdto;
 import com.app.pojos.Cities;
@@ -52,11 +53,11 @@ public class CityServImpl implements CityServ {
 	}
 
 	@Override
-	public Cities addCity(Citiesdto city) {
+	public ApiResponse addCity(Citiesdto city) {
 		Converterdto dto=new Converterdto();
 		 Cities ctyo  =dto.toCities(city);
 		Cities cty= cityDao.save(ctyo);
-		 return cty;
+		 return new ApiResponse("City Added");
 	}
 
 	@Override

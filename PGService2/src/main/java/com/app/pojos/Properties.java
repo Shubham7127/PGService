@@ -37,6 +37,9 @@ public class Properties extends CommonEntity{
 	@JoinColumn(name ="city_id")
 	private Cities myCity;
 	
+	@OneToMany(mappedBy = "property",cascade = CascadeType.ALL,orphanRemoval = true,fetch= FetchType.EAGER)
+	private List<Reviews>list=new ArrayList<Reviews>();
+	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="Properties_Facilities",
 	joinColumns =  @JoinColumn(name="property_id"),
@@ -45,4 +48,9 @@ public class Properties extends CommonEntity{
 	
 	@ManyToMany(mappedBy = "properties" ,fetch = FetchType.LAZY)
 	private  List<User>users=new ArrayList<User>();
+	
+	public Properties(Long id) {
+		super();
+		setId(id);
+	}
 }

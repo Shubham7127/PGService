@@ -3,6 +3,7 @@ package com.app.dto;
 
 import org.springframework.stereotype.Component;
 
+import com.app.pojos.Cities;
 import com.app.pojos.Gender;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +17,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString 
-@Component
 public class Propertydto {
 	private Long id;
 	private String name;
@@ -27,5 +27,5 @@ public class Propertydto {
 	private	float ratingClean;
 	private float ratingFood;
 	private float ratingSafety;
-
+	private Long city_id;
 }

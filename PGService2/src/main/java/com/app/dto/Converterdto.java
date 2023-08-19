@@ -3,6 +3,7 @@ package com.app.dto;
 import com.app.pojos.Cities;
 import com.app.pojos.Facilities;
 import com.app.pojos.Properties;
+import com.app.pojos.Reviews;
 import com.app.pojos.User;
 
 public class Converterdto {
@@ -17,6 +18,7 @@ public class Converterdto {
 	public Properties toProperty(Propertydto dto) {
 		
 		Properties entity=new Properties();
+		
 		entity.setId(dto.getId());
 		entity.setAddress(dto.getAddress());
 		entity.setDescription(dto.getDescription());
@@ -26,6 +28,7 @@ public class Converterdto {
 		entity.setRatingFood(dto.getRatingFood());
 		entity.setRatingSafety(dto.getRatingSafety());
 		entity.setRent(dto.getRent());
+		entity.setMyCity(new Cities(dto.getCity_id()));
 		return entity;
 	}
 
@@ -50,5 +53,62 @@ public class Converterdto {
 		return entity;
 		
 	}
+	public Properties toPropertyEntity(Propertydto dto) {
+		
+		Properties entity=new Properties();
+		
+		entity.setId(dto.getId());
+		entity.setAddress(dto.getAddress());
+		entity.setDescription(dto.getDescription());
+		entity.setName(dto.getName());
+		entity.setGender(dto.getGender());
+		entity.setRatingClean(dto.getRatingClean());
+		entity.setRatingFood(dto.getRatingFood());
+		entity.setRatingSafety(dto.getRatingSafety());
+		entity.setRent(dto.getRent());
+		entity.setMyCity(new Cities(dto.getCity_id()));
+		return entity;
+	}
+	public Propertydto toPropertydto(Properties prop) {
+		
+		Propertydto dto=new Propertydto();
+		
+		dto.setAddress(prop.getAddress());
+		dto.setId(prop.getId());
+		dto.setDescription(prop.getDescription());
+		dto.setGender(prop.getGender());
+		dto.setName(prop.getName());
+		dto.setRatingClean(prop.getRatingClean());
+		dto.setRatingFood(prop.getRatingFood());
+		dto.setRatingSafety(prop.getRatingSafety());
+		dto.setRent(prop.getRent());
+		dto.setCity_id(prop.getMyCity().getId());
+		return dto;
+	}
+	
+	public Reviews toReviewsentity(Reviewdto dto) {
+	
+		Reviews entity= new Reviews();
+		
+		entity.setContent(dto.getContent());
+		entity.setId(dto.getId());
+		entity.setProperty(new Properties(dto.getPropertyid()));
+		entity.setUser(new User(dto.getUserid()));
+		
+		return entity;
+	}
+	
+	public Reviewdto toReviews(Reviewdto review) {
+		
+		Reviewdto dto= new Reviewdto();
+		
+		dto.setContent(review.getContent());
+		dto.setId(review.getId());
+		dto.setPropertyid(review.getPropertyid());
+		dto.setUserid(review.getUserid());
+		
+		return dto;
+	}
 	
 }
+
