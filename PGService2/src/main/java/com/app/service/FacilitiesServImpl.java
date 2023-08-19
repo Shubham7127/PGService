@@ -1,5 +1,8 @@
 package com.app.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,6 @@ import com.app.dao.FacilitiesDao;
 import com.app.dto.Converterdto;
 import com.app.dto.Facilitiesdto;
 import com.app.pojos.Facilities;
-import com.app.pojos.User;
 
 @Service
 @Transactional
@@ -51,9 +53,19 @@ public class FacilitiesServImpl implements FacilitiesServ {
 
 	@Override
 	public String deleteFacility(Long id) {
-		Facilities fc = facilitiesDao.findById(id).orElseThrow(() -> new ResourceNotFoundException("Invalid Facility ID !!!!!"));
+		Facilities fc = facilitiesDao.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Invalid Facility ID !!!!!"));
 		facilitiesDao.delete(fc);
 		return "Facility Deleted";
+	}
+
+	@Override
+	public List<Facilitiesdto> getAllFacilites() {
+
+		List<Facilitiesdto> facilitiesDtoList = new ArrayList<Facilitiesdto>();
+		List<Facilities> facilities = facilitiesDao.findAll();
+		facilitiesDtoList = Arrays.asList(mapper.map(facilities, Facilitiesdto[].class));
+		return facilitiesDtoList;
 	}
 
 }

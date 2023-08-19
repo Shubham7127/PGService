@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.dto.Citiesdto;
 import com.app.dto.Facilitiesdto;
 import com.app.dto.Propertydto;
 import com.app.dto.UserDto;
+import com.app.pojos.Cities;
 import com.app.pojos.Facilities;
 import com.app.pojos.Properties;
+import com.app.service.CityServ;
 import com.app.service.FacilitiesServ;
 import com.app.service.PropertServ;
 import com.app.service.UserService;
@@ -25,6 +28,9 @@ public class AdminController {
 	
 	@Autowired
 	private FacilitiesServ facilitiesServ;
+	
+	@Autowired
+	private CityServ cityService;
 	
 	@GetMapping("/user")
 	public List<UserDto> listAllUsers(){
@@ -62,5 +68,22 @@ public class AdminController {
 	@DeleteMapping("/facilties/delete/{id}")
 	public String deleteFacilites(@PathVariable Long id) {
 		return facilitiesServ.deleteFacility(id);
+	}
+	
+	@PostMapping("/cities/add")
+	public Cities addCity(@RequestBody Citiesdto city) {
+	
+		return cityService.addCity(city);
+	}
+	
+	@DeleteMapping("/cities/delete/{id}")
+	public String city(@PathVariable Long id) {
+		return cityService.deleteCities(id);
+	}
+	
+	@PutMapping("/cities/edit")
+	public Cities updateCity(@RequestBody Citiesdto ct) {
+		
+		return cityService.updateCity(ct);
 	}
 }

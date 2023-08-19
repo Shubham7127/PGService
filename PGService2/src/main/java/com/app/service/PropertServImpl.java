@@ -16,27 +16,29 @@ import com.app.dao.CityDao;
 import com.app.dao.PropertDao;
 import com.app.dto.Citiesdto;
 import com.app.dto.Converterdto;
+import com.app.dto.Facilitiesdto;
+import com.app.dto.PropertyFacilitydto;
 import com.app.dto.Propertydto;
 import com.app.pojos.Cities;
+import com.app.pojos.Facilities;
 import com.app.pojos.Properties;
 
 @Service
 @Transactional
-public class PropertServImpl implements PropertServ{
+public class PropertServImpl implements PropertServ {
 
-	
 	@Autowired
 	private PropertDao propertyDao;
 
 	@Autowired
 	private CityDao citiesDao;
-	
+
 	@Autowired
 	public ModelMapper mapper;
-	
-	public List<Propertydto> maptoDto(List<Properties> list){
+
+	public List<Propertydto> maptoDto(List<Properties> list) {
 		List<Propertydto> propertyDtoList = new ArrayList<Propertydto>();
-		
+
 		for (Properties e : list) {
 			Propertydto d = new Propertydto();
 			d.setAddress(e.getAddress());
@@ -47,43 +49,62 @@ public class PropertServImpl implements PropertServ{
 			d.setRatingFood(e.getRatingFood());
 			d.setRatingSafety(e.getRatingSafety());
 			d.setRent(e.getRent());
-			
+
 			propertyDtoList.add(d);
 		}
-		
+
 		return propertyDtoList;
 	}
-	
+
 	@Override
 	public List<Propertydto> getPropertiesByCityName(String cityName) {
-//		 List<Propertydto> propertyDtoList = new ArrayList<Propertydto>();
-		Cities city=citiesDao.findByName(cityName);
-//		List<Properties>listprop= (List<Properties>) propertyDao.findById(city.getId()).orElseThrow(() -> new ResourceNotFoundException("Invalid city!!!!!"));
-//		propertyDtoList=Arrays.asList(mapper.map(listprop,Propertydto[].class));
+		Cities city = citiesDao.findByName(cityName);
 		return maptoDto(city.getProperties());
 	}
 
 	@Override
 	public Properties addProperty(Propertydto property) {
-		Converterdto converter=new Converterdto();
-		Properties propt= converter.toProperty(property);
+		Converterdto converter = new Converterdto();
+		Properties propt = converter.toProperty(property);
 		Properties prop = propertyDao.save(propt);
 		return prop;
 	}
 
 	@Override
 	public Properties updateProperty(Propertydto pt) {
-		Properties prot=propertyDao.findById(pt.getId()).orElseThrow(() -> new ResourceNotFoundException("Invalid city ID !!!!!"));
-		Converterdto converter=new Converterdto();
-		Properties propt= converter.toProperty(pt);
+		Properties prot = propertyDao.findById(pt.getId())
+				.orElseThrow(() -> new ResourceNotFoundException("Invalid city ID !!!!!"));
+		Converterdto converter = new Converterdto();
+		Properties propt = converter.toProperty(pt);
 		return propertyDao.save(propt);
 	}
-	
-	
-	
 
-	
+	@Override
+	public List<Propertydto> getAllProperties() {
 
-	
+		List<Propertydto> propertyDtoList = new ArrayList<Propertydto>();
+		List<Properties> cities = propertyDao.findAll();
+		propertyDtoList = Arrays.asList(mapper.map(cities, Propertydto[].class));
+		return propertyDtoList;
+	}
+
+	@Override
+	public List<Facilitiesdto> findById(Long id) {
+		Properties prop = propertyDao.findById(id).orElseThrow();
+		List<Facilities> list = prop.getFacilities();
+		
+		List<Facilitiesdto> facilityDtoList = new ArrayList<Facilitiesdto>();
+		for (Facilities e : list) {
+			Facilitiesdto fd = new Facilitiesdto();
+			fd.setId(e.getId());
+			fd.setName(e.getName());
+			fd.setType(e.getType());
+			facilityDtoList.add(fd);
+		}
+//		System.out.println(list.get(0).getName());
+		prop.getFacilities().size();//avoid lazy init 
+		return facilityDtoList;
+	}
+
 
 }

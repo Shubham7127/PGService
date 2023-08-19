@@ -12,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString
 @Table(name = "Properties")
 public class Properties extends CommonEntity{
 	
@@ -36,7 +37,7 @@ public class Properties extends CommonEntity{
 	@JoinColumn(name ="city_id")
 	private Cities myCity;
 	
-	@ManyToMany(fetch=FetchType.LAZY,cascade = CascadeType.MERGE)
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="Properties_Facilities",
 	joinColumns =  @JoinColumn(name="property_id"),
 	inverseJoinColumns =  @JoinColumn(name="facility_id"))

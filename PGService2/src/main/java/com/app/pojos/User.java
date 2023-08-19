@@ -38,6 +38,5 @@ public class User extends CommonEntity
 		@JoinTable(name ="interested_users_properties",
 				joinColumns = @JoinColumn(name ="user_id"),
 				inverseJoinColumns = @JoinColumn(name="property_id"))
-		
 		private List<Properties> properties = new ArrayList<>();
 }

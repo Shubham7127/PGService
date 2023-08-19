@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,4 +29,9 @@ public class FacilitiesController {
 		return facilitiesServ.getById(id);
 	}
 	
+	@GetMapping
+	public List<Facilitiesdto> listAllFacilities(){
+		System.out.println("in listCities");
+		return facilitiesServ.getAllFacilites();
+	}
 }

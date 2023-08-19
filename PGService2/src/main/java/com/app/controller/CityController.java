@@ -32,21 +32,7 @@ public class CityController {
 		return cityService.getById(id);
 	}
 	
-	@PostMapping
-	public Cities addCity(@RequestBody Citiesdto city) {
 	
-		return cityService.addCity(city);
-	}
 	
-	@DeleteMapping("/{id}")
-	public String city(@PathVariable Long id) {
-		return cityService.deleteCities(id);
-	}
-	
-	@PutMapping
-	public Cities updateCity(@RequestBody Citiesdto ct) {
-		
-		return cityService.updateCity(ct);
-	}
 	
 }

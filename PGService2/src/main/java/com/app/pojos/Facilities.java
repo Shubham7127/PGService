@@ -14,12 +14,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString
 @Table(name = "Facilities")
 public class Facilities extends CommonEntity {
 	@Column(length=20)
@@ -30,6 +32,6 @@ public class Facilities extends CommonEntity {
 //	@Column
 //	private String icon;
 	
-	@ManyToMany(mappedBy = "facilities" ,fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "facilities" ,fetch = FetchType.EAGER)
 	private  List<Properties> properties=new ArrayList<Properties>();
 }
