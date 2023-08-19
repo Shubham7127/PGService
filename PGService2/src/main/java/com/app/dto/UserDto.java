@@ -23,9 +23,9 @@ public class UserDto {
 	
 	
 	private Long id;
-	
+	@Email
 	private String email;
-
+	
 	private String password;
 
 	private String fullName;
@@ -34,7 +34,6 @@ public class UserDto {
 
 	private Gender gender;
 
-	private String collegeName;
 	private String role;
 
 }

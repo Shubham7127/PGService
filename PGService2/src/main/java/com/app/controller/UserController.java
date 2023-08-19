@@ -33,7 +33,7 @@ public class UserController {
 		return userservice.getById(id);
 	}
 	
-	@PutMapping
+	@PutMapping("/edit")
 	public User updateUser(@RequestBody UserDto User)
 	{
 		return userservice.updateUser(User);		

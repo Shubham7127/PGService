@@ -10,4 +10,6 @@ public interface FacilitiesServ {
 	public Facilities updateFacilities(Facilitiesdto  facilities);
 	
 	public Facilitiesdto getById(Long id);
+	public String deleteFacility(Long id);
+	
 }

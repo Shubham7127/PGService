@@ -1,6 +1,7 @@
 package com.app.dto;
 
-import javax.persistence.Column;
+
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,9 @@ import lombok.ToString;
 @Component
 public class Facilitiesdto {
 	private Long id;
+	@NotBlank
 	private String name;
+	@NotBlank
 	private String  type;
 
 }
