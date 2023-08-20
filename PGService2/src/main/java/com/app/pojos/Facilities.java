@@ -33,4 +33,9 @@ public class Facilities extends CommonEntity {
 	
 	@ManyToMany(mappedBy = "facilities" ,fetch = FetchType.EAGER)
 	private  List<Properties> properties=new ArrayList<Properties>();
+	
+	public void addProperties(Properties p) {
+		this.properties.add(p);
+		p.getFacilities().add(this);
+	}
 }

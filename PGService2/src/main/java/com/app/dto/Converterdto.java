@@ -1,5 +1,8 @@
 package com.app.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.app.pojos.Cities;
 import com.app.pojos.Facilities;
 import com.app.pojos.Properties;
@@ -39,6 +42,7 @@ public class Converterdto {
 		entity.setType(dto.getType());
 		return entity;
 	}
+	
 	public User toUser(UserDto dto)
 	{
 		User entity = new User();
@@ -86,29 +90,7 @@ public class Converterdto {
 		return dto;
 	}
 	
-	public Reviews toReviewsentity(Reviewdto dto) {
 	
-		Reviews entity= new Reviews();
-		
-		entity.setContent(dto.getContent());
-		entity.setId(dto.getId());
-		entity.setProperty(new Properties(dto.getPropertyid()));
-		entity.setUser(new User(dto.getUserid()));
-		
-		return entity;
-	}
-	
-	public Reviewdto toReviews(Reviewdto review) {
-		
-		Reviewdto dto= new Reviewdto();
-		
-		dto.setContent(review.getContent());
-		dto.setId(review.getId());
-		dto.setPropertyid(review.getPropertyid());
-		dto.setUserid(review.getUserid().getId());
-		
-		return dto;
-	}
 	
 }
 

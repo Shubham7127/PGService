@@ -37,7 +37,7 @@ public class Properties extends CommonEntity{
 	@JoinColumn(name ="city_id")
 	private Cities myCity;
 	
-	@OneToMany(mappedBy = "property",cascade = CascadeType.ALL,orphanRemoval = true,fetch= FetchType.EAGER)
+	@OneToMany(mappedBy = "property",cascade = CascadeType.ALL)
 	private List<Reviews>list=new ArrayList<Reviews>();
 	
 	@ManyToMany(fetch=FetchType.EAGER)
@@ -52,5 +52,12 @@ public class Properties extends CommonEntity{
 	public Properties(Long id) {
 		super();
 		setId(id);
+	}
+	
+	public void addFacilities(List<Facilities> l) {
+		for (Facilities facility : l) {
+			this.facilities.add(facility);
+			facility.getProperties().add(this);
+		}
 	}
 }

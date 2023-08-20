@@ -16,5 +16,5 @@ public interface CityDao extends JpaRepository<Cities, Long> {
 //	@Query("select c from cities c where c.name = :name")
 //	Cities findByName(@Param("name")String name);
 
-	Cities findByName(String name);
+	Cities findByName(String cityName);
 }

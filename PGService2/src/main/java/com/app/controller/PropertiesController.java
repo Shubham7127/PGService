@@ -42,6 +42,10 @@ public class PropertiesController {
         return propertyServ.findById(id);
     }
 	
+	@PostMapping
+	public String savePropertieswithFaclity(@RequestBody  PropertyFacilitydto   PropertyFacilitydto) {
+		return propertyServ.addPropertiesAndFacilities(PropertyFacilitydto);
+	}
 	
 
 }

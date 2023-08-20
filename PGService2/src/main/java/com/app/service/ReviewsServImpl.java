@@ -11,13 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
+import com.app.dao.PropertDao;
 import com.app.dao.ReviewDao;
+import com.app.dao.UserDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.Converterdto;
 import com.app.dto.Propertydto;
 import com.app.dto.Reviewdto;
 import com.app.pojos.Properties;
 import com.app.pojos.Reviews;
+import com.app.pojos.User;
 
 @Service
 @Transactional
@@ -27,6 +30,12 @@ public class ReviewsServImpl implements ReviewsServ {
 
 	@Autowired
 	public ModelMapper mapper;
+	
+	@Autowired
+	private UserDao userDao;
+	
+	@Autowired
+	private PropertDao properDao;
 
 	@Override
 	public List<Reviewdto> getAllReview() {
@@ -39,10 +48,14 @@ public class ReviewsServImpl implements ReviewsServ {
 
 	@Override
 	public ApiResponse addReview(Reviewdto review) {
-
-		Converterdto converter = new Converterdto();
-		Reviews rev = converter.toReviewsentity(review);
-		Reviews prop = reviewDao.save(rev);
+		
+		Properties property = properDao.findById(review.getPropertyid()).orElseThrow(()->new RuntimeException("Property Not found"));
+		System.out.println(property.getName());
+		User user = userDao.findById(review.getUserid()).orElseThrow(()->new RuntimeException("user Not found"));
+		
+		Reviews rev = new Reviews(review.getContent(), property, user);
+		
+		reviewDao.save(rev);
 
 		return new ApiResponse("Review Added Successfully");
 	}

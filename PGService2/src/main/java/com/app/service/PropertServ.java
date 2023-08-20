@@ -17,5 +17,6 @@ public interface PropertServ {
 	public Properties updateProperty(Propertydto pt);
 	public List<Propertydto> getAllProperties();
 	public List<Facilitiesdto> findById(Long id);
+	public String addPropertiesAndFacilities(PropertyFacilitydto prorFac);
 	
 }

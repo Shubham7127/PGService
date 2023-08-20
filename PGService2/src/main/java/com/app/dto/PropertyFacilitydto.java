@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.app.pojos.Cities;
 import com.app.pojos.Facilities;
 import com.app.pojos.Gender;
 
@@ -31,7 +32,8 @@ public class PropertyFacilitydto {
 	private	float ratingClean;
 	private float ratingFood;
 	private float ratingSafety;
-	private List<Facilities> facilities=new ArrayList<Facilities>();
+	private Citiesdto cityName;
+	private List<Facilitiesdto> facilities=new ArrayList<Facilitiesdto>();
 	
 	
 }

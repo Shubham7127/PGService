@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.CityDao;
+import com.app.dao.FacilitiesDao;
 import com.app.dao.PropertDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.Citiesdto;
@@ -36,6 +37,9 @@ public class PropertServImpl implements PropertServ {
 
 	@Autowired
 	public ModelMapper mapper;
+
+	@Autowired
+	private FacilitiesDao facilitiesDao;
 
 	public List<Propertydto> maptoDto(List<Properties> list) {
 		List<Propertydto> propertyDtoList = new ArrayList<Propertydto>();
@@ -107,6 +111,40 @@ public class PropertServImpl implements PropertServ {
 //		System.out.println(list.get(0).getName());
 		prop.getFacilities().size();// avoid lazy init
 		return facilityDtoList;
+	}
+
+	public String addPropertiesAndFacilities(PropertyFacilitydto prorFac) {
+
+		Properties entity = new Properties();
+		List<Facilitiesdto> list = prorFac.getFacilities();
+
+		entity.setId(prorFac.getId());
+		entity.setAddress(prorFac.getAddress());
+		entity.setDescription(prorFac.getDescription());
+		entity.setName(prorFac.getName());
+		entity.setGender(prorFac.getGender());
+		entity.setRatingClean(prorFac.getRatingClean());
+		entity.setRatingFood(prorFac.getRatingFood());
+		entity.setRatingSafety(prorFac.getRatingSafety());
+		entity.setRent(prorFac.getRent());
+		Cities ct=citiesDao.findByName(prorFac.getCityName().getName());
+		entity.setMyCity(ct);
+		
+		List<Facilities> l = new ArrayList<Facilities>();
+		for (Facilitiesdto facilities : list) {
+			Facilities f = new Facilities();
+			f.setName(facilities.getName());
+			f.setType(facilities.getType());
+			f.addProperties(entity);
+			facilitiesDao.save(f);
+
+		}
+		entity.addFacilities(l);
+
+		propertyDao.save(entity);
+
+		return "added";
+
 	}
 
 }
