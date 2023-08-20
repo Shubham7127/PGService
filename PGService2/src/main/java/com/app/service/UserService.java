@@ -2,6 +2,9 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.dto.AuthRequest;
+import com.app.dto.AuthResp;
+import com.app.dto.Propertydto;
 import com.app.dto.UserDto;
 import com.app.pojos.User;
 
@@ -17,5 +20,7 @@ public List<UserDto> getAllusers();
 	public String deleteUser(Long id);
 	
 	public User updateUser(UserDto dto);
-
+	public AuthResp Signin(AuthRequest req);
+	
+	public List<Propertydto> findById(Long id);
 }

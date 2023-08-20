@@ -43,13 +43,15 @@ public class FacilitiesServImpl implements FacilitiesServ {
 	}
 
 	@Override
-	public Facilities updateFacilities(Facilitiesdto facilities) {
+	public Facilitiesdto updateFacilities(Facilitiesdto facilities) {
 
 		Facilities fc = facilitiesDao.findById(facilities.getId())
 				.orElseThrow(() -> new ResourceNotFoundException("Invalid city ID !!!!!"));
 		Converterdto dto = new Converterdto();
 		Facilities ctyo = dto.toFacilities(facilities);
-		return facilitiesDao.save(ctyo);
+		Facilities prop=facilitiesDao.save(ctyo);
+		
+		return mapper.map(prop, Facilitiesdto.class);
 	}
 
 	@Override

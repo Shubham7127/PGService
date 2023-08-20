@@ -105,7 +105,7 @@ public class Converterdto {
 		dto.setContent(review.getContent());
 		dto.setId(review.getId());
 		dto.setPropertyid(review.getPropertyid());
-		dto.setUserid(review.getUserid());
+		dto.setUserid(review.getUserid().getId());
 		
 		return dto;
 	}

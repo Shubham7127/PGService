@@ -62,7 +62,7 @@ public class AdminController {
 	}
 	
 	@PutMapping("/facilities/edit")
-	public Facilities updateFacilities(@RequestBody Facilitiesdto facilities ) {
+	public Facilitiesdto updateFacilities(@RequestBody Facilitiesdto facilities ) {
 		
 		return facilitiesServ.updateFacilities(facilities);
 	} 

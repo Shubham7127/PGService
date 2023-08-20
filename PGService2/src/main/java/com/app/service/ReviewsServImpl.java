@@ -50,6 +50,8 @@ public class ReviewsServImpl implements ReviewsServ {
 	@Override
 	public String deleteReview(Long id) {
 
+		Reviews rev= reviewDao.findById(id).orElseThrow(() -> new ResourceNotFoundException("Invalid User ID !!!!!"));
+		
 		return null;
 	}
 

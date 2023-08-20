@@ -11,7 +11,7 @@ public interface FacilitiesServ {
 
 	ApiResponse addFacilities(Facilitiesdto facilities);
 	
-	public Facilities updateFacilities(Facilitiesdto  facilities);
+	public Facilitiesdto updateFacilities(Facilitiesdto  facilities);
 	
 	public Facilitiesdto getById(Long id);
 	public String deleteFacility(Long id);

@@ -92,8 +92,8 @@ public class PropertServImpl implements PropertServ {
 	}
 
 	@Override
-	public List<Facilitiesdto> findById(Long id) {
-		Properties prop = propertyDao.findById(id).orElseThrow();
+	public List<Facilitiesdto> findById(Long propId) {
+		Properties prop = propertyDao.findById(propId).orElseThrow();
 		List<Facilities> list = prop.getFacilities();
 
 		List<Facilitiesdto> facilityDtoList = new ArrayList<Facilitiesdto>();
