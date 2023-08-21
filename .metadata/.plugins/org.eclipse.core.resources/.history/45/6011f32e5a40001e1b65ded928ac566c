@@ -1,0 +1,65 @@
+package com.app.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.custom_exceptions.ResourceNotFoundException;
+import com.app.dao.BookingCartDao;
+import com.app.dao.PropertDao;
+import com.app.dto.UserDto;
+import com.app.pojos.BookingCart;
+import com.app.pojos.Properties;
+import com.app.pojos.User;
+@Service
+@Transactional
+public class BookingCartServImpl implements BookingCartServ{
+
+	@Autowired
+	public BookingCartDao cartDao;
+	
+	@Autowired
+	public PropertDao propertyDao;
+	@Autowired
+	public UserService userService;
+	@Override
+	public String addPropertiesToCart(Long userId, Long prodId) {
+	
+		User user = userService.getUserSById(userId);
+		
+		if(user.getMyCart()==null)
+		{
+			BookingCart newCart = new BookingCart();
+			user.addCart(newCart);
+		}
+		
+		BookingCart cart = cartDao.findByCartOwnerId(userId)
+				.orElseThrow(() -> new ResourceNotFoundException("Invalid User ID !!!!!"));
+		
+		// cart found
+				// get product details from property id
+		
+		Properties property=propertyDao.findById(prodId)
+				.orElseThrow(() -> new ResourceNotFoundException("Invalid User ID !!!!!"));
+		
+		
+		return null;
+	}
+
+	@Override
+	public List<BookingCart> getCartDetails() {
+
+		return null;
+	}
+
+	@Override
+	public String deleteCartContents(Long userId) {
+
+		return null;
+	}
+	
+
+}

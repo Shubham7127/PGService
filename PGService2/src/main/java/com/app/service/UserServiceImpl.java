@@ -104,7 +104,21 @@ public class UserServiceImpl implements UserService {
 		}
 		System.out.println(list.get(0).getAddress());
 		user.getProperties().size();			
-		return propertydtosList; 
+		return propertydtosList; 	
+	}
+
+	@Override
+	public String addToBook(Long userId, Long propertyId) {
 		
+		
+		return null;
+	}
+
+	@Override
+	public User getUserSById(Long id) {
+
+		User user=userdao.findById(id).orElseThrow();
+		
+		return user;
 	}
 }

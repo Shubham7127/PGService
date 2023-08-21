@@ -1,0 +1,7 @@
+package com.app.dto;
+
+import com.app.pojos.Properties;
+
+public class CartProperitesdto {
+	private Properties properties;
+}

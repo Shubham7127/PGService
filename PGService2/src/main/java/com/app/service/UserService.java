@@ -16,6 +16,7 @@ public interface UserService {
 public List<UserDto> getAllusers();
 	
 	public UserDto getById(Long id);
+	public User getUserSById(Long id);
 	public User addUser(UserDto user);
 	
 	public String deleteUser(Long id);
@@ -24,4 +25,6 @@ public List<UserDto> getAllusers();
 	public AuthResp Signin(AuthRequest req);
 	
 	public List<Propertydto> findById(Long id);
+	
+	public String addToBook(Long userId,Long propertyId);
 }

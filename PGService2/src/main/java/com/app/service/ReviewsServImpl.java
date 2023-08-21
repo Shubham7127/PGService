@@ -15,8 +15,6 @@ import com.app.dao.PropertDao;
 import com.app.dao.ReviewDao;
 import com.app.dao.UserDao;
 import com.app.dto.ApiResponse;
-import com.app.dto.Converterdto;
-import com.app.dto.Propertydto;
 import com.app.dto.Reviewdto;
 import com.app.pojos.Properties;
 import com.app.pojos.Reviews;

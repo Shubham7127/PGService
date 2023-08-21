@@ -1,0 +1,12 @@
+package com.app.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.app.pojos.BookingCart;
+
+public interface BookingCartDao extends JpaRepository<BookingCart, Long>{
+
+	Optional<ShoppingCart> findByCartOwnerId(long customerId);
+	@Query("select c from ShoppingCart c left outer join fetch c.cartItems where c.cartOwner.id=?1")
+	Optional<ShoppingCart> getCartWithCartItems(long customerId);
+}

@@ -1,0 +1,14 @@
+package com.app.service;
+
+public interface BookingCartServ {
+
+	String addProductToCart(long userId, long prodId);
+	
+	List<BookingCart> getCartDetails();
+	
+	double getTotalCartPrice(long userId);
+	int getTotalCartItems(long userId);
+	//	String deleteCart(long userId);
+	String deleteCartContents(long userId);
+	
+}

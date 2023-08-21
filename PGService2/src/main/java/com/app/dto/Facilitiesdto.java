@@ -14,7 +14,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
+
 public class Facilitiesdto {
 	private Long id;
 	@NotBlank

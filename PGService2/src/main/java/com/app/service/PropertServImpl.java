@@ -22,6 +22,7 @@ import com.app.dto.Facilitiesdto;
 import com.app.dto.Facilitiesdto2;
 import com.app.dto.PropertyFacilitydto;
 import com.app.dto.Propertydto;
+import com.app.exception_handler.GlobalExceptionHandler;
 import com.app.pojos.Cities;
 import com.app.pojos.Facilities;
 import com.app.pojos.Properties;
@@ -138,14 +139,13 @@ public class PropertServImpl implements PropertServ {
 			f.setType(facilities.getType());
 			f.addProperties(entity);
 			facilitiesDao.save(f);
-
 		}
 		entity.addFacilities(l);
-
 		propertyDao.save(entity);
-
 		return "added";
-
 	}
 
+	
+	
+	
 }

@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.app.pojos.Cities;
-import com.app.pojos.Facilities;
 import com.app.pojos.Gender;
 
 import lombok.AllArgsConstructor;

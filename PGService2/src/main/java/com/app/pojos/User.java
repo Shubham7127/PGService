@@ -38,9 +38,20 @@ public class User extends CommonEntity {
 				joinColumns = @JoinColumn(name = "user_id"), 
 				inverseJoinColumns = @JoinColumn(name = "property_id"))
 	private List<Properties> properties = new ArrayList<>();
-
+	
+	@OneToOne(mappedBy = "cartOwner",cascade = CascadeType.ALL,orphanRemoval = true)
+	private BookingCart myCart;
+	
 	public User(Long id) {
 		super();
 		setId(id);
 	}
+	
+	public void addCart(BookingCart cart)
+	{
+		//establish bi dir relationship
+		setMyCart(cart);
+		cart.setCartOwner(this);
+	}
+	
 }
