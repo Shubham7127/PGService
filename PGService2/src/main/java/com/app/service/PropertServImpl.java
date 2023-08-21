@@ -19,6 +19,7 @@ import com.app.dto.ApiResponse;
 import com.app.dto.Citiesdto;
 import com.app.dto.Converterdto;
 import com.app.dto.Facilitiesdto;
+import com.app.dto.Facilitiesdto2;
 import com.app.dto.PropertyFacilitydto;
 import com.app.dto.Propertydto;
 import com.app.pojos.Cities;
@@ -116,7 +117,7 @@ public class PropertServImpl implements PropertServ {
 	public String addPropertiesAndFacilities(PropertyFacilitydto prorFac) {
 
 		Properties entity = new Properties();
-		List<Facilitiesdto> list = prorFac.getFacilities();
+		List<Facilitiesdto2> list = prorFac.getFacilities();
 
 		entity.setId(prorFac.getId());
 		entity.setAddress(prorFac.getAddress());
@@ -131,7 +132,7 @@ public class PropertServImpl implements PropertServ {
 		entity.setMyCity(ct);
 		
 		List<Facilities> l = new ArrayList<Facilities>();
-		for (Facilitiesdto facilities : list) {
+		for (Facilitiesdto2 facilities : list) {
 			Facilities f = new Facilities();
 			f.setName(facilities.getName());
 			f.setType(facilities.getType());

@@ -51,6 +51,7 @@ public class Converterdto {
 		entity.setPassword(dto.getPassword());
 		entity.setFullName(dto.getFullName());
 		entity.setRole(dto.getRole());
+		entity.setAddress(dto.getAddress());
 		entity.setMobNo(dto.getMobNo());
 		entity.setGender(dto.getGender());
 		

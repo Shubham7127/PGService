@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.dto.ApiResponse;
 import com.app.dto.AuthRequest;
 import com.app.dto.AuthResp;
 import com.app.dto.Propertydto;

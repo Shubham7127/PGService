@@ -32,8 +32,8 @@ public class PropertyFacilitydto {
 	private	float ratingClean;
 	private float ratingFood;
 	private float ratingSafety;
-	private Citiesdto cityName;
-	private List<Facilitiesdto> facilities=new ArrayList<Facilitiesdto>();
+	private Citiesdto2 cityName;
+	private List<Facilitiesdto2> facilities=new ArrayList<Facilitiesdto2>();
 	
 	
 }

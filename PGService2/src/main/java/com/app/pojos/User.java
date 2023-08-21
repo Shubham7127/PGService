@@ -34,7 +34,9 @@ public class User extends CommonEntity {
 	private List<Reviews> reviews = new ArrayList<>();
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "interested_users_properties", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "property_id"))
+	@JoinTable(name = "interested_users_properties",
+				joinColumns = @JoinColumn(name = "user_id"), 
+				inverseJoinColumns = @JoinColumn(name = "property_id"))
 	private List<Properties> properties = new ArrayList<>();
 
 	public User(Long id) {

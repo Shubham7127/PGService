@@ -1,9 +1,0 @@
-package com.app.pojos;
-
-
-public class Properties extends CommonEntity{
-	
-	private String name;
-	private String description
-
-}

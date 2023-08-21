@@ -1,6 +1,5 @@
 package com.app.dto;
 
-import org.springframework.stereotype.Component;
 
 import com.app.pojos.Gender;
 
@@ -16,7 +15,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Component
 public class AuthResp {
 		
 		private Long id;

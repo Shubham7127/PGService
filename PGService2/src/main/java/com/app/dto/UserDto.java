@@ -29,7 +29,6 @@ public class UserDto {
 	private String password;
 
 	private String fullName;
-
 	private long mobNo;
 	private String address;
 	private Gender gender;
