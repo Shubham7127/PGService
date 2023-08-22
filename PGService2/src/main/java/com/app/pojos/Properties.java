@@ -49,6 +49,9 @@ public class Properties extends CommonEntity{
 	@ManyToMany(mappedBy = "properties" ,fetch = FetchType.LAZY)
 	private  List<User>users=new ArrayList<User>();
 	
+	@OneToOne(mappedBy = "properties",cascade = CascadeType.ALL,orphanRemoval = true)
+	private CartProperties properties;
+	
 	public Properties(Long id) {
 		super();
 		setId(id);

@@ -2,6 +2,7 @@ package com.app.dto;
 
 import java.util.List;
 
+import com.app.pojos.CartProperties;
 import com.app.pojos.Properties;
 
 import lombok.AllArgsConstructor;

@@ -12,15 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/*
- * CartItem :   id,int quantity,double totalPrice(=product unit price * quantity)
-
-   
-    private ShoppingCart cart;
-
-    
-    private Product product;
- */
 
 @AllArgsConstructor
 @NoArgsConstructor

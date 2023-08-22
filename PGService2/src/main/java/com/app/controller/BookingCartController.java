@@ -24,8 +24,8 @@ public class BookingCartController {
 	}
 	
 	@GetMapping("/show_cart")
-	public ResponseEntity<?> showCartContents() {
-		return  ResponseEntity.status(HttpStatus.OK).body(bookingCartService.getCartDetails());
+	public ResponseEntity<?> showCartContents(@RequestParam Long userId) {
+		return  ResponseEntity.status(HttpStatus.OK).body(bookingCartService.getCartDetails(userId));
 		
 	}
 }

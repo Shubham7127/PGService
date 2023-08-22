@@ -8,7 +8,7 @@ import com.app.pojos.BookingCart;
 public interface BookingCartServ {
 
 	String addPropertiesToCart(Long userId, Long prodId);
-	List<BookingCartdto> getCartDetails();	
+	BookingCartdto getCartDetails(Long userId);	
 	String deleteCartContents(Long userId);
 	
 }

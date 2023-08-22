@@ -2,7 +2,7 @@ package com.app.service;
 
 import java.util.List;
 
-
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +28,9 @@ public class BookingCartServImpl implements BookingCartServ{
 	public PropertDao propertyDao;
 	@Autowired
 	public UserService userService;
+	
+	@Autowired
+	public ModelMapper mapper;
 	@Override
 	public String addPropertiesToCart(Long userId, Long prodId) {
 	
@@ -61,9 +64,15 @@ public class BookingCartServImpl implements BookingCartServ{
 	}
 
 	@Override
-	public List<BookingCartdto> getCartDetails() {
-		List<BookingCartdto> l=cartDao.getAllCart();
-		return l;
+	public BookingCartdto getCartDetails(Long userId) {
+	
+		BookingCart cart=cartDao.getCartWithCartItems(userId).orElseThrow(() -> new ResourceNotFoundException("Invalid User ID !!!!!"));
+		
+		BookingCartdto cartdto= new BookingCartdto();
+//		cartdto.setProperties(cart.getCartProperties());
+		//List<BookingCartdto> l= cartDao.findById(userId).orElseThrow(() -> new ResourceNotFoundException("Invalid User ID !!!!!"));
+		return mapper.map(cart, BookingCartdto.class);
+
 	}
 
 	@Override
