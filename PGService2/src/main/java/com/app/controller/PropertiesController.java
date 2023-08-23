@@ -17,6 +17,7 @@ import com.app.service.PropertServ;
 
 @RestController
 @RequestMapping("/properties")
+@CrossOrigin(origins = {"*"})
 public class PropertiesController {
 
 	@Autowired

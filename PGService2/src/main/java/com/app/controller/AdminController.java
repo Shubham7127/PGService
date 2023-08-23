@@ -22,6 +22,7 @@ import com.app.service.UserService;
 
 @RestController
 @RequestMapping("/admin")
+@CrossOrigin(origins = {"*"})
 public class AdminController {
 
 	@Autowired

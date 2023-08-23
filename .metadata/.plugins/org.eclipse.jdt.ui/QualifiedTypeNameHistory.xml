@@ -18,7 +18,6 @@
     <fullyQualifiedTypeName name="com.app.pojos.Reviews"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.parameters.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
-    <fullyQualifiedTypeName name="com.app.dto.Citiesdto"/>
     <fullyQualifiedTypeName name="com.app.dto.ApiResponse"/>
     <fullyQualifiedTypeName name="com.app.dto.Facilitiesdto2"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.Max"/>
@@ -56,4 +55,5 @@
     <fullyQualifiedTypeName name="com.app.dto.BookingCartdto"/>
     <fullyQualifiedTypeName name="com.app.pojos.CartProperties"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+    <fullyQualifiedTypeName name="com.app.dto.Citiesdto"/>
 </qualifiedTypeNameHistroy>

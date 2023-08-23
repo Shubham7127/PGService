@@ -20,7 +20,7 @@ import com.app.service.UserService;
 
 @RestController
 @RequestMapping("/User")
-@CrossOrigin(origins="http://localhost:3000")
+
 public class HomeController {
 	
 	@Autowired

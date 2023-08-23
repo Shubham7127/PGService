@@ -22,7 +22,7 @@ public class Properties extends CommonEntity{
 	private String description;
 	@Column
 	private String address;
-	@Column(name = "genderType")
+	@Column(name = "gender")
 	@Enumerated(EnumType.STRING) 
 	private Gender gender;
 	@Column
