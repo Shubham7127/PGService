@@ -1,5 +1,0 @@
-package com.pg.pojo;
-
-public enum Gender {
-	MALE,FEMALE,OTHER,BOTH
-}
