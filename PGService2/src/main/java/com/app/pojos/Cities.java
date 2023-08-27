@@ -15,16 +15,17 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "Cities")
-//@JsonIgnoreProperties(value = {"handler","hibernateLazyInializer","FieldHandler"})
 public class Cities extends CommonEntity {
-	
+
 	@Column
 	private String name;
-//	@OneToMany(mappedBy ="myCity", cascade = CascadeType.ALL,orphanRemoval = true,fetch= FetchType.EAGER)
-//	private List<Properties> properties = new ArrayList<>();
-//	@Override
-//	public String toString() {
-//		return "Cities "+getId()+"[name=" + name + ", properties=" + properties + "]";
-//	}
+	@OneToMany(mappedBy ="myCity", cascade = CascadeType.ALL,orphanRemoval = true,fetch= FetchType.EAGER)
+	private List<Properties> properties = new ArrayList<>();
+	
+	public Cities(Long id) {
+		this.setId(id);
+		
+	}
+
 	
 }
