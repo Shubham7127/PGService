@@ -64,6 +64,9 @@ public class Properties extends CommonEntity{
 		}
 	}
 
+	
+	
+	
 	public Properties(Long id,String name, String address, String gender, double rent) {
 		super();
 		setId(id);
@@ -72,5 +75,22 @@ public class Properties extends CommonEntity{
 		this.gender = gender;
 		this.rent = rent;
 	}
+
+	public Properties(Long id,String name, String description, String address, String gender, double rent, float ratingClean,
+			float ratingFood, float ratingSafety ) {
+		super();
+		setId(id);
+		this.name = name;
+		this.description = description;
+		this.address = address;
+		this.gender = gender;
+		this.rent = rent;
+		this.ratingClean = ratingClean;
+		this.ratingFood = ratingFood;
+		this.ratingSafety = ratingSafety;
+		
+	}
+
+	
 	
 }

@@ -12,6 +12,7 @@ import com.app.pojos.Properties;
 public interface PropertServ {
 
 	public List<Propertydto> getPropertiesByCityName(String cityName);
+	
 	public 	ApiResponse addProperty(Propertydto property);
 	public Properties updateProperty(Propertydto pt);
 	public List<Propertydto> getAllProperties();

@@ -30,4 +30,5 @@ public class BookingCartController {
 		return  ResponseEntity.status(HttpStatus.OK).body(bookingCartService.getCartDetails(userId));
 		
 	}
+	
 }

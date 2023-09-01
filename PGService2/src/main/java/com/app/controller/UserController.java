@@ -66,7 +66,9 @@ public class UserController {
 	
 	 @PostMapping("/getotpforforgotpass")
 	 public ResponseEntity<String> getOtpForForgotPass(@RequestBody ForgetPassOtpDTO emailId) {
+		 System.out.println(emailId);
 	      String email=emailId.getEmail();
+	      System.out.println(email);
 	      userservice.getOtpForForgotPass(email);
 	        return ResponseEntity.ok("OTP sent for verification.");
 	    }
@@ -75,6 +77,7 @@ public class UserController {
 	    @PostMapping("/verifyotpforforgot")
 	    public ResponseEntity<?> verifyOTPForForgotPass(@RequestBody OTPVerificationDTO otpVerificationDTO) {
 	    	
+	    	System.out.println(otpVerificationDTO);
 	        boolean isVerified = userservice.verifyOTP(otpVerificationDTO);
  	    	
 	    	try {

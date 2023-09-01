@@ -239,6 +239,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean forgotchangePassword(EditPassDTO changePasswordDTO) {
 
+		System.out.println(changePasswordDTO.getEmail());
 		User user = userdao.findByEmail(changePasswordDTO.getEmail());
 
 		if (user != null && user.getEmail().equals(changePasswordDTO.getEmail())) {

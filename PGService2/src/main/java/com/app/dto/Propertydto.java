@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.app.pojos.Cities;
 import com.app.pojos.Gender;
+import com.app.pojos.Properties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,4 +39,21 @@ public class Propertydto {
 	@Max(value = 5, message = "Maximum rating should be 5")
 	private float ratingSafety;
 	private Long city_id;
+	
+
+	public Propertydto(Properties pro) {
+
+		this.id=pro.getId();
+		this.name = pro.getName();
+		this.description = pro.getDescription();
+		this.address = pro.getAddress();
+		this.gender = pro.getGender();
+		this.rent = pro.getRent();
+		this.ratingClean = pro.getRatingClean();
+		this.ratingFood = pro.getRatingFood();
+		this.ratingSafety = pro.getRatingSafety();
+//		this.city_id=null;
+	}
+	
+	
 }

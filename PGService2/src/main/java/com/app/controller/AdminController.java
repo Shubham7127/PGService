@@ -47,7 +47,7 @@ public class AdminController {
 	public ApiResponse deleteUser(@PathVariable Long id) {
 		return new ApiResponse(userservice.deleteUser(id));
 	}
-
+	
 	@PostMapping("/property/addproperty")
 	public ResponseEntity<?> addProperty(@RequestBody Propertydto property) {
 

@@ -2,7 +2,9 @@ package com.app.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +71,22 @@ public class PropertServImpl implements PropertServ {
 	@Override
 	public List<Propertydto> getPropertiesByCityName(String cityName) {
 		Cities city = citiesDao.findByName(cityName);
-		return maptoDto(city.getProperties());
+		
+			System.out.println(city.getId());
+			List<Properties>prop=propertyDao.findByMyCityId(city.getId());
+			System.out.println(prop.get(1));
+			
+			List<Propertydto>propdto=new ArrayList<>();
+			
+			for(Properties p:prop) {
+				System.out.println(p.getMyCity().getId());
+				Properties pro=new Properties(p.getId(),p.getName(),p.getDescription(),p.getAddress(),p.getGender(),p.getRent(),p.getRatingClean(),p.getRatingFood(),p.getRatingSafety());
+					
+					propdto.add(new Propertydto(pro));
+			}
+			
+		return propdto;
+//		return maptoDto(city.getProperties());
 	}
 
 	@Override
